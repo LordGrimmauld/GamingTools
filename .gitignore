@@ -3,6 +3,13 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+
+highscores.json
+testimg.png
+.idea
+Tesseract-OCR/
+highscores/*
+
 # C extensions
 *.so
 

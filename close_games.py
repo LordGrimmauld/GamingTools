@@ -6,7 +6,7 @@ This button is currently bound to n, it can be rebound.
 However, it is anoying if you want to type in the in-game chat and your game minimizes.
 Therefore, a lock was added so this programm can be turned of temporarily.
 This lock is bound to ctrl+ü, but as ü is a german-specific character, you as user of this script will have to rebind that key.
-To completely exit this script, use ctrl+shift+ü (can be rebound as well)
+To completely exit_script this script, use ctrl+shift+ü (can be rebound as well)
 
 This script uses the keyboard python-library. It has to be seperately installed by moving to your python folder, opening a command prompt and typing "python -m pip install keyboard"
 
@@ -38,7 +38,7 @@ def minimizeForbidden():
     if buf.value is not None and any(map(lambda x: x in buf.value, blacklist)):  # is any of the blacklisted items contained in the active windows title?
         win32gui.ShowWindow(hWnd, win32con.SW_MINIMIZE)
 
-def toggle():  # toggle the lock and give a message about the new status in the console.
+def toggle():  # toggle_game_close the lock and give a message about the new status in the console.
     global lock
     lock = not lock
     print("Lock is now " + ("active" if lock else "inactive"))
