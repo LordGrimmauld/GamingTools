@@ -14,15 +14,6 @@ import win32api
 import threading
 
 
-def get_foreground_window_title() -> Optional[str]:
-    hwnd = windll.user32.GetForegroundWindow()
-    length = windll.user32.GetWindowTextLengthW(hwnd)
-    buf = create_unicode_buffer(length + 1)
-    windll.user32.GetWindowTextW(hwnd, buf, length + 1)
-
-    return buf.value if buf.value else None
-
-
 try:
     with open("highscores.json", "r") as f:
         high_scores = json.load(f)
@@ -47,6 +38,15 @@ def error_handler(method):
         except Exception as exception:
             print(exception)
     return tested
+
+
+def get_foreground_window_title() -> Optional[str]:
+    hwnd = windll.user32.GetForegroundWindow()
+    length = windll.user32.GetWindowTextLengthW(hwnd)
+    buf = create_unicode_buffer(length + 1)
+    windll.user32.GetWindowTextW(hwnd, buf, length + 1)
+
+    return buf.value if buf.value else None
 
 
 @error_handler
