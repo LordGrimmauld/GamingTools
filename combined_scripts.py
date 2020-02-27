@@ -196,7 +196,7 @@ def auto_click_right():
 
 
 def toggle_black_screen(widget):
-    global globalExStyle, label, old_hwnd, new_hwnd, cycle
+    global globalExStyle, label, cycle
     cycle += 1
     if cycle % 3 == 2:
         return
@@ -205,10 +205,9 @@ def toggle_black_screen(widget):
     win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, globalExStyle)
     widget.master.wm_attributes("-transparentcolor", "black" if switch else "green")
     if not switch:
+        time.sleep(.1)
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTDOWN, 10, 10, 0, 0)
         win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP, 10, 10, 0, 0)
-
-
 
 
 right_click_lock_active = False
@@ -252,3 +251,6 @@ if __name__ == "__main__":
 
     # just run forever
     label.mainloop()
+
+
+# keyboard.get_hotkey_name()
